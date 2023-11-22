@@ -1,25 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
     <title>Happy birthday Francin</title>
-    <link rel="stylesheet" href="cin3.css">
-</head>
-<body>
+    <link rel="stylesheet" href="cin3.css" />
+  </head>
+  <body>
     <div>
-        <h1 class="Cin1">How long did it take you to get here Cin</h1>
+      <h1 class="Cin1">How long did it take you to get here Cin</h1>
 
-        <h1 class="Cin2">This is the last coded message. Solve it to continue</hp1>
+      <h1 class="Cin2">This is the last coded message. Solve it to continue</h1>
     </div>
     <p class="code">CBQAJF</p>
     <div class="container">
-        <input class="bar" type="password" placeholder="Hint...Your favourite movie that we watched together">
+      <input
+        class="bar"
+        id="passwordInput"
+        oninput="checkPassword()"
+        type="password"
+        placeholder="Hint...Your favourite movie that we watched together"
+      />
 
-        <button class="btn"><a href="Francin4.html" target="_self">Enter</a></button>
+      <button
+        class="btn"
+        id="submitButton"
+        disabled
+        onclick="redirectToPage4()"
+      >
+        Enter
+      </button>
 
+      <script>
+        const correctPassword = ["barbie", "barbei", "barbe"];
+
+        function checkPassword() {
+          const inputValue = document.getElementById("passwordInput").value;
+
+          const trimmed = inputValue.trim().toLowerCase();
+
+          const submitButton = document.getElementById("submitButton");
+
+          if (correctPassword.includes(trimmed)) {
+            submitButton.disabled = false;
+          } else {
+            submitButton.disabled = true;
+          }
+        }
+
+        function redirectToPage4() {
+          const inputValue = document
+            .getElementById("passwordInput")
+            .value.toLowerCase()
+            .trim();
+
+          if (correctPassword.includes(inputValue)) {
+            window.location.href = "Francin4.html";
+          }
+        }
+      </script>
     </div>
-    
-</body>
+  </body>
 </html>

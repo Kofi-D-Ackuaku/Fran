@@ -1,26 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy birtday Francin</title>
-    <link rel="stylesheet" href="cin2.css">
-</head>
-<body>
+    <link rel="stylesheet" href="cin2.css" />
+  </head>
+  <body>
     <video autoplay muted loop id="backgroundVideo">
-        <source src="prod.mp4" type="video/mp4">
-      </video>
+      <source src="prod.mp4" type="video/mp4" />
+    </video>
     <div>
-        <h1 class="Cin1">Congratulations Francin</h1>
+      <h1 class="Cin1">Congratulations Francin</h1>
 
-        <h1 class="Cin2">This is another coded message. Solve it to continue</hp1>
+      <h1 class="Cin2">This is another coded message. Solve it to continue</h1>
     </div>
-    <p class="code">MFJHIUPO </p>
+    <p class="code">MFJHIUPO</p>
     <div class="container">
-        <input class="bar" type="password" placeholder="Hint...Our favourite character in a college show">
+      <input
+        class="bar"
+        type="password"
+        id="passwordInput"
+        oninput="checkPassword()"
+        placeholder="Hint...Our favourite character in a college show"
+      />
 
-        <button class="btn"><a href="Francin3.html" target="_self">Enter</a></button>
-
+      <button
+        class="btn"
+        id="submitButton"
+        disabled
+        onclick="redirectToPage3()"
+      >
+        Enter
+      </button>
     </div>
-</body>
+
+    <script>
+      const correctPassword = ["leighton"];
+
+      function checkPassword() {
+        const inputValue = document.getElementById("passwordInput").value;
+
+        const trimmed = inputValue.trim().toLowerCase();
+
+        const submitButton = document.getElementById("submitButton");
+
+        if (correctPassword.includes(trimmed)) {
+          submitButton.disabled = false;
+        } else {
+          submitButton.disabled = true;
+        }
+      }
+
+      function redirectToPage3() {
+        const inputValue = document
+          .getElementById("passwordInput")
+          .value.toLowerCase()
+          .trim();
+
+        if (correctPassword.includes(inputValue)) {
+          window.location.href = "Francin3.html";
+        }
+      }
+    </script>
+  </body>
 </html>
